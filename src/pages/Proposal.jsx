@@ -18,7 +18,7 @@ function Proposal () {
         date: '',
         time: '',
         food: '',
-        desert: '',
+        dessert: '',
         activity: '',
     })
 
@@ -59,7 +59,7 @@ function Proposal () {
       )}
       {slide === 5 && (
         <SlideFive
-          name={name}
+          name={userName}
           email={email}
           selections={selections}
         />
