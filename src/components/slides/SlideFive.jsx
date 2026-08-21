@@ -19,8 +19,8 @@ function SlideFive({ name, email, selections }) {
       setSending(true)
 
       await emailjs.send(
-        'YOUR_SERVICE_ID',    // ← replace with yours
-        'YOUR_TEMPLATE_ID',   // ← replace with yours
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,    // serive Id
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,   // Template Id
         {
           to_email:  email,
           from_name: name,
@@ -30,7 +30,7 @@ function SlideFive({ name, email, selections }) {
           dessert:   selections.dessert,
           activity:  selections.activity,
         },
-        'YOUR_PUBLIC_KEY'     // ← replace with yours
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY     //  Public Key
       )
 
       setSent(true)
@@ -116,10 +116,10 @@ function SlideFive({ name, email, selections }) {
         </div>
       </div>
 
-      {/* Error */}
+      
       {error && <p className="text-red-400 text-sm mb-4">{error}</p>}
 
-      {/* Submit button */}
+      
       <button
         onClick={handleSubmit}
         disabled={sending}
